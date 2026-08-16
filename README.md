@@ -20,9 +20,7 @@ Ce programme réalise un **morphing** entre deux images : il génère une séque
 │   ├── selection_points.c    # Interface graphique de sélection des couples de points
 │   ├── morphing.c            # Triangulation et interpolation (cœur de l'algorithme)
 │   ├── convertir_images.c    # Utilitaire de conversion JPG/PNG -> PPM (via ImageMagick)
-│   ├── main_final.c          # Point d'entrée du programme final
-│   └── main.c, main_selection.c, main_morphing.c, affichage.c
-│                              # Versions de développement / tests intermédiaires
+│   └── main_final.c          # Point d'entrée du programme final
 ├── include/
 │   └── image.h               # Structures (Point, Pixel, Image, CouplesPoints, Triangle...)
 ├── IN304_Projet/             # Bibliothèque graphique fournie par l'UE (uvsqgraphics, SDL2)
@@ -31,9 +29,7 @@ Ce programme réalise un **morphing** entre deux images : il génère une séque
 ├── images_ppm/                # Images converties au format PPM, prêtes pour le morphing
 ├── images_out/                # Images intermédiaires générées par le programme
 ├── creer_video.sh            # Assemble les images de images_out/ en vidéo MP4 (ffmpeg)
-├── Makefile                   # Compilation du projet
-└── Documentation projet morphing en C.pdf
-                               # Documentation détaillée (choix techniques, fonctions, ressources)
+└── Makefile                   # Compilation du projet
 ```
 
 > `IN304_Projet/` contient la bibliothèque graphique `uvsqgraphics` fournie par l'UVSQ pour l'enseignement (basée sur SDL2), utilisée pour l'affichage et l'interface de sélection des points. Ce n'est pas du code écrit dans le cadre de ce projet.
@@ -160,7 +156,6 @@ Tailles recommandées : 200×200 pour des tests rapides, 400×400 pour un bon co
 - Le format **PPM** (P3 ASCII et P6 binaire) est utilisé pour manipuler les images en C sans dépendance externe pour la lecture/écriture des pixels.
 - Les points sélectionnés forment une **triangulation** de l'image ; chaque triangle est interpolé indépendamment entre l'image de départ et l'image d'arrivée pour obtenir un rendu progressif et réaliste.
 - La structure `Pixel` encode chaque couleur sur 3 `unsigned char` (RGB), ce qui limite l'empreinte mémoire par rapport à des `int`.
-- La documentation complète (choix d'implémentation, fonctions détaillées, ressources consultées) est disponible dans `Documentation projet morphing en C.pdf`.
 
 ## Auteure
 
