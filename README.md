@@ -1,17 +1,17 @@
-# Morphing d'images en C
+# 🐱➡️🐶 Morphing d'images en C
 
 Projet réalisé dans le cadre de l'UE **IN304 — Développement d'Applications, Langage C** (L2 Informatique, UFR des Sciences, UVSQ — Université Paris-Saclay).
 
 Ce programme réalise un **morphing** entre deux images : il génère une séquence d'images intermédiaires qui transforment progressivement une image de départ en une image d'arrivée, à partir de couples de points de correspondance sélectionnés par l'utilisateur. Les images générées sont ensuite assemblées en une vidéo MP4.
 
-## Aperçu
+## ✨ Aperçu
 
-1. L'utilisateur choisit deux images (déjà converties au format PPM).
-2. Une interface graphique (SDL2) s'ouvre et affiche les deux images côte à côte : l'utilisateur clique sur des points qui se correspondent (yeux, nez, contours…).
-3. Le programme triangule les points de base et calcule, pour chaque image intermédiaire, l'interpolation des positions et des couleurs entre les deux images (triangulation + interpolation barycentrique).
-4. Les images intermédiaires sont enregistrées dans `images_out/`, puis assemblées en vidéo avec `ffmpeg`.
+1. 🖼️ L'utilisateur choisit deux images (déjà converties au format PPM).
+2. 🖱️ Une interface graphique (SDL2) s'ouvre et affiche les deux images côte à côte : l'utilisateur clique sur des points qui se correspondent (yeux, nez, contours…).
+3. 📐 Le programme triangule les points de base et calcule, pour chaque image intermédiaire, l'interpolation des positions et des couleurs entre les deux images (triangulation + interpolation barycentrique).
+4. 🎬 Les images intermédiaires sont enregistrées dans `images_out/`, puis assemblées en vidéo avec `ffmpeg`.
 
-## Structure du projet
+## 📁 Structure du projet
 
 ```
 .
@@ -34,11 +34,11 @@ Ce programme réalise un **morphing** entre deux images : il génère une séque
 
 > `IN304_Projet/` contient la bibliothèque graphique `uvsqgraphics` fournie par l'UVSQ pour l'enseignement (basée sur SDL2), utilisée pour l'affichage et l'interface de sélection des points. Ce n'est pas du code écrit dans le cadre de ce projet.
 
-## Installation et lancement
+## ⚙️ Installation et lancement
 
 Le programme dépend de trois outils : **SDL2** (+ `SDL2_ttf`, `SDL2_gfx`) pour l'interface graphique, **ImageMagick** pour convertir des images en PPM, et **FFmpeg** pour assembler la vidéo finale.
 
-### macOS
+### 🍎 macOS
 
 **1. Installer les dépendances** (avec [Homebrew](https://brew.sh)) :
 
@@ -59,7 +59,7 @@ make morphing
 ./morphing images_ppm/chat.ppm images_ppm/chien.ppm 30
 ```
 
-### Linux (Debian / Ubuntu)
+### 🐧 Linux (Debian / Ubuntu)
 
 **1. Installer les dépendances** :
 
@@ -81,7 +81,7 @@ make morphing
 ./morphing images_ppm/chat.ppm images_ppm/chien.ppm 30
 ```
 
-### Windows
+### 🪟 Windows
 
 Le projet utilise des bibliothèques C (SDL2) et des outils en ligne de commande (`make`, `gcc`, ImageMagick, FFmpeg) pensés pour un environnement Unix. La façon la plus simple et la plus fiable de le faire tourner sous Windows est d'utiliser **WSL2** (Windows Subsystem for Linux), qui fait tourner un vrai Linux à l'intérieur de Windows.
 
@@ -117,7 +117,7 @@ make morphing
 
 *(Alternative sans WSL2 : installer [MSYS2](https://www.msys2.org/) puis les paquets `mingw-w64-x86_64-gcc`, `mingw-w64-x86_64-SDL2`, `mingw-w64-x86_64-SDL2_ttf`, `mingw-w64-x86_64-SDL2_gfx` — plus technique à mettre en place que WSL2.)*
 
-## Utilisation du programme
+## 🚀 Utilisation du programme
 
 **1. Convertir des images au format PPM** (si nécessaire) :
 
@@ -139,9 +139,9 @@ Tailles recommandées : 200×200 pour des tests rapides, 400×400 pour un bon co
 - `30` : nombre d'images intermédiaires générées (31 images au total)
 
 **3. Sélectionner les points de correspondance** dans la fenêtre qui s'ouvre :
-- clic sur un point dans l'image de gauche, puis sur le point correspondant dans l'image de droite (répéter pour 5 à 10 couples) ;
-- bouton **SAUVER** (cyan) pour enregistrer les points dans `data/points.txt` ;
-- bouton **QUITTER** (rouge) pour lancer la génération des images intermédiaires.
+- 🖱️ clic sur un point dans l'image de gauche, puis sur le point correspondant dans l'image de droite (répéter pour 5 à 10 couples) ;
+- 💾 bouton **SAUVER** (cyan) pour enregistrer les points dans `data/points.txt` ;
+- ❌ bouton **QUITTER** (rouge) pour lancer la génération des images intermédiaires.
 
 **4. Générer la vidéo finale** :
 
@@ -151,12 +151,12 @@ Tailles recommandées : 200×200 pour des tests rapides, 400×400 pour un bon co
 ./creer_video.sh 15
 ```
 
-## Détails techniques
+## 🔧 Détails techniques
 
-- Le format **PPM** (P3 ASCII et P6 binaire) est utilisé pour manipuler les images en C sans dépendance externe pour la lecture/écriture des pixels.
-- Les points sélectionnés forment une **triangulation** de l'image ; chaque triangle est interpolé indépendamment entre l'image de départ et l'image d'arrivée pour obtenir un rendu progressif et réaliste.
-- La structure `Pixel` encode chaque couleur sur 3 `unsigned char` (RGB), ce qui limite l'empreinte mémoire par rapport à des `int`.
+- 📄 Le format **PPM** (P3 ASCII et P6 binaire) est utilisé pour manipuler les images en C sans dépendance externe pour la lecture/écriture des pixels.
+- 🔺 Les points sélectionnés forment une **triangulation** de l'image ; chaque triangle est interpolé indépendamment entre l'image de départ et l'image d'arrivée pour obtenir un rendu progressif et réaliste.
+- 🎨 La structure `Pixel` encode chaque couleur sur 3 `unsigned char` (RGB), ce qui limite l'empreinte mémoire par rapport à des `int`.
 
-## Auteure
+## 👩‍💻 Auteure
 
 Laetitia ALIOUI — L2 Informatique, UVSQ (Université Paris-Saclay)
