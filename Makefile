@@ -1,5 +1,5 @@
 # Makefile du projet de morphing d'images
-# UE Développement d'applications en C - UVSQ (L3 Informatique)
+# UE Développement d'applications en C - UVSQ (L2 Informatique)
 #
 # Utilise pkg-config pour retrouver SDL2 / SDL2_ttf / SDL2_gfx,
 # ce qui rend la compilation portable entre Linux et macOS
