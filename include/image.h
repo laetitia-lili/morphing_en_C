@@ -64,9 +64,10 @@ ImageTriangulee* creer_image_triangulee(int largeur, int hauteur, int nb_points)
 void liberer_image_triangulee(ImageTriangulee *it);
 Point* calculer_points_intermediaires(CouplesPoints *cp, double alpha);
 void trianguler_image(ImageTriangulee *it);
+void interpoler_pixel(ImageTriangulee *img_tri, Image *img_dep, Image *img_arr,
+                      Image *img_inter, int x, int y, double alpha,
+                      CouplesPoints *couples);
+
+//=============partie 5 =================//
+CouplesPoints* interface_selection_points(Image *img1, Image *img2);
 #endif
-
-
-
-
-
