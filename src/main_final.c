@@ -2,12 +2,6 @@
 #include <stdlib.h>
 #include "../include/image.h"
 
-// prototypes des fonctions externes
-CouplesPoints* interface_selection_points(Image *img1, Image *img2);
-Pixel interpoler_pixel(Point P, ImageTriangulee *img_inter, 
-                      CouplesPoints *cp, Image *img_depart, 
-                      Image *img_arrivee, double alpha);
-
 int main(int argc, char *argv[]) {
     if (argc != 4) {
         printf("Usage: %s Image_Depart Image_Arrivee N\n", argv[0]);
@@ -97,9 +91,8 @@ int main(int argc, char *argv[]) {
         // calculer les couleurs
         for (int y = 0; y < img1->hauteur; y++) {
             for (int x = 0; x < img1->largeur; x++) {
-                Point P = {x, y};
-                img_inter->image->pixels[y][x] = 
-                    interpoler_pixel(P, img_inter, cp, img1, img2, alpha);
+                interpoler_pixel(img_inter, img1, img2, img_inter->image,
+                                  x, y, alpha, cp);
             }
         }
         
