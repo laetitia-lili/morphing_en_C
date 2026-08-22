@@ -16,3 +16,4 @@ __MACOSX/
 # Images intermédiaires générées à chaque exécution du morphing
 images_out/*.ppm
 !images_out/.gitkeep
+*.mp4
