@@ -1,0 +1,18 @@
+# Fichiers objets et exécutables générés par la compilation
+obj/
+*.o
+morphing
+convertir_images
+generer_morphing
+selection
+
+# Fichiers système
+.DS_Store
+__MACOSX/
+
+# Fichiers de l'éditeur
+.vscode/
+
+# Images intermédiaires générées à chaque exécution du morphing
+images_out/*.ppm
+!images_out/.gitkeep
