@@ -143,6 +143,10 @@ Tailles recommandées : 200×200 pour des tests rapides, 400×400 pour un bon co
 - 💾 bouton **SAUVER** (cyan) pour enregistrer les points dans `data/points.txt` ;
 - ❌ bouton **QUITTER** (rouge) pour lancer la génération des images intermédiaires.
 
+| Avant sélection | Après sélection des points |
+|:---:|:---:|
+| ![Interface avant sélection des points](screenshots/selection_points_avant.png) | ![Interface après sélection des points](screenshots/selection_points_apres.png) |
+
 **4. Générer la vidéo finale** :
 
 ```bash
